@@ -1,0 +1,103 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+
+:root {
+  --primary-color: #6c5ce7;
+  --secondary-color: #a29bfe;
+  --text-color: #333;
+  --light-text: #777;
+  --bg-color: #fff;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--bg-color);
+  box-shadow: var(--shadow);
+  padding: 10px 0;
+  z-index: 1000;
+  height: 60px;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-text);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 20%;
+  position: relative;
+}
+
+.menu-item i {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.menu-item.active {
+  color: var(--primary-color);
+}
+
+.menu-item.active::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 40px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 3px;
+}
+
+.center-item {
+  position: relative;
+  top: -20px;
+}
+
+.fab {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.fab i {
+  font-size: 24px;
+  margin: 0;
+}
+
+.menu-item:hover .fab {
+  transform: scale(1.1);
+}
+
+/* Animation  */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.menu-item.active i {
+  animation: bounce 0.5s ease;
+}
